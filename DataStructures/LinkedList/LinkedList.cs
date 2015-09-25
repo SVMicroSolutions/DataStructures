@@ -153,6 +153,71 @@ namespace DataStructures.LinkedList
             return false;
         }
         // Reverse a Linked List.  
+        public LinkedList<T> Reverse()
+        {
+            //If we have nothing to  reverse just return the list
+            if (this.size <= 1)
+            {
+                return this; 
+            }     
+
+            LinkedList<T> reversedList = new LinkedList<T>();
+            var tempNode = head;
+            while (tempNode != null)
+            {
+                reversedList.AddAtStart(tempNode.Data);
+                tempNode = tempNode.Next;
+            }
+
+            return reversedList;
+        }
+
+        public bool DeterminePalidrome(LinkedList<T> tempList)
+        {
+            var tempNode1 = head;
+            var tempNode2 = tempList.head;
+
+            while (tempNode1 != null && tempNode2 != null)
+            {
+                if (tempNode1.Data.Equals(tempNode2.Data) == false)
+                {
+                    return false;
+                }
+                tempNode1 = tempNode1.Next;
+                tempNode2 = tempNode2.Next;
+            }
+            return true;
+        }
+
+        //Fetch the Nth Element Data 
+
+        public T FetchData(int position)
+        {
+            var p1 = head;
+            var p2 = head;
+
+            //Move p1 position nodes in the list 
+            for (int i = 0; i < position; i++)
+            {
+                if (p1 == null)
+                {
+                    return default(T);  // out of bounds
+                }
+                p1 = p1.Next;
+            }
+
+            // now move them at the same time, when p1 hits the end, p2 will be at the right element 
+            while (p1 != null)
+            {
+                p1 = p1.Next;
+                p2 = p2.Next;
+            }
+
+            return p2.Data; 
+
+        }
+
+
 
         // Detect for a circular linked list 
 

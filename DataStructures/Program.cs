@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using DataStructures.LinkedList;
@@ -16,51 +17,31 @@ namespace SvMicroSolutions.DataStructures
             list.Add("B");
             list.Add("C");
             list.Add("D");
-            list.Add("E");
-            list.Add("F");
-            list.Add("G");
-            list.Add("H");
+            list.Add("C");
+            list.Add("B");
+            list.Add("A");
+
 
             list.ListNodes();
             Console.WriteLine();
 
+          
+         
+          
+            Console.WriteLine("reversing list");
+            var reversedList = list.Reverse();
             Console.WriteLine();
-            Console.WriteLine("Deleting node 8");
-            list.Delete(8);
-            list.ListNodes();
+            reversedList.ListNodes();
+            Console.WriteLine();
 
+            Console.WriteLine("get item that is 4 from last");
+            Console.WriteLine(list.FetchData(4));
             Console.WriteLine();
-            Console.WriteLine("Position 5: " + list.Retrieve(5).Data);
-
-            Console.WriteLine();
-            Console.WriteLine("Deleting node 5");
-            list.Delete(5);
-
-            Console.WriteLine();
-            Console.WriteLine("Position 5: " + list.Retrieve(5).Data);
-
-            Console.WriteLine();
-            list.ListNodes();
-
-            Console.WriteLine("Deleting node 9");
-            list.Delete(9);
-            Console.WriteLine();
-            list.ListNodes();
-
-            Console.WriteLine("Deleting node 1");
-            list.Delete(1);
-            Console.WriteLine();
-            list.ListNodes();
-
-            Console.WriteLine("Deleting node 1");
-            list.Delete(1);
-            Console.WriteLine();
-            list.ListNodes();
 
             Console.ReadLine();
 
-
-
         }
+
+
     }
 }
